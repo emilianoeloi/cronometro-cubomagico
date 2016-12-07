@@ -66,32 +66,33 @@ class App extends Component {
     this.state = {secondsElapsed: 0};
   }
   componentDidMount() {
-    this.twiceKeys = {
+    this.stopwatchControl = {
+      started: false,
+    }
+    this.twoKeys = {
       first: false,
       second: false,
       stop: false,
     };
     document.onkeydown = (evt) =>  {
       if (!evt) evt = event;
-      console.info(evt.name, evt.code,evt.timeStamp);
       if (evt.ctrlKey) {
-        if (!this.twiceKeys.first) {
-          this.twiceKeys.first = true;
-        } else if (this.twiceKeys.first) {
-          this.twiceKeys.second = true;
+        if (!this.twoKeys.first) {
+          this.twoKeys.first = true;
+        } else if (this.twoKeys.first) {
+          this.twoKeys.second = true;
         }
-        if (this.twiceKeys.first && this.twiceKeys.second) {
-          if (this.twiceKeys.stop) {
+        if (this.twoKeys.first && this.twoKeys.second) {
+          if (this.twoKeys.stop) {
             this.stopStopwatch();
-            this.twiceKeys.stop = false;
+            this.twoKeys.stop = false;
           } else {
             this.startStopwatch();
-            this.twiceKeys.stop = true;
+            this.twoKeys.stop = true;
           }
-          this.twiceKeys.first = false;
-          this.twiceKeys.second = false;
+          this.twoKeys.first = false;
+          this.twoKeys.second = false;
         }
-        console.info('Tecla control');
       }
     };
     firebase.initializeApp(config);
@@ -132,13 +133,21 @@ class App extends Component {
     }));
   }
 
-  startStopwatch() {
+  resetStopwatch() {
     this.setState({ secondsElapsed: 0});
+  }
+
+  startStopwatch() {
+    console.info(this.stopwatchControl.started);
+    if (this.stopwatchControl.started) return;
+    this.resetStopwatch();
     this.interval = setInterval(() => this.tick(), 1000);
+    this.stopwatchControl.started = true;
   }
 
   stopStopwatch() {
     clearInterval(this.interval);
+    this.stopwatchControl.started = false
   }
 
   userKey() {
