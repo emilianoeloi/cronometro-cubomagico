@@ -65,6 +65,47 @@ class App extends Component {
     this.saveStopwatchTime = this.saveStopwatchTime.bind(this);
     this.state = {secondsElapsed: 0};
   }
+  checkPCKeys(evt) {
+    if (evt.ctrlKey) {
+      if (!this.twoKeys.first) {
+        this.twoKeys.first = true;
+      } else if (this.twoKeys.first) {
+        this.twoKeys.second = true;
+      }
+      if (this.twoKeys.first && this.twoKeys.second) {
+        if (this.twoKeys.stop) {
+          this.stopStopwatch();
+          this.twoKeys.stop = false;
+        } else {
+          this.startStopwatch();
+          this.twoKeys.stop = true;
+        }
+        this.twoKeys.first = false;
+        this.twoKeys.second = false;
+      }
+    }
+  }
+  checkMacKeys(evt) {
+    const key = evt.key;
+    if (key === 'Meta') {
+      if (!this.twoKeys.first) {
+        this.twoKeys.first = true;
+      } else if (this.twoKeys.first) {
+        this.twoKeys.second = true;
+      }
+      if (this.twoKeys.first && this.twoKeys.second) {
+        if (this.twoKeys.stop) {
+          this.stopStopwatch();
+          this.twoKeys.stop = false;
+        } else {
+          this.startStopwatch();
+          this.twoKeys.stop = true;
+        }
+        this.twoKeys.first = false;
+        this.twoKeys.second = false;
+      }
+    }
+  }
   componentDidMount() {
     this.stopwatchControl = {
       started: false,
@@ -76,24 +117,9 @@ class App extends Component {
     };
     document.onkeydown = (evt) =>  {
       if (!evt) evt = event;
-      if (evt.ctrlKey) {
-        if (!this.twoKeys.first) {
-          this.twoKeys.first = true;
-        } else if (this.twoKeys.first) {
-          this.twoKeys.second = true;
-        }
-        if (this.twoKeys.first && this.twoKeys.second) {
-          if (this.twoKeys.stop) {
-            this.stopStopwatch();
-            this.twoKeys.stop = false;
-          } else {
-            this.startStopwatch();
-            this.twoKeys.stop = true;
-          }
-          this.twoKeys.first = false;
-          this.twoKeys.second = false;
-        }
-      }
+      console.info('evt.ctrlKey', evt);
+      this.checkPCKeys(evt);
+      this.checkMacKeys(evt);
     };
     firebase.initializeApp(config);
 
@@ -226,7 +252,7 @@ class App extends Component {
         <div id="sign-in-status"></div>
         <div id="sign-in"></div>
         <div id="account-details"></div>
-        <p> Inicie e pare o cronômetro teclando os dois Controls</p>
+        <p> Inicie e pare o cronômetro teclando os dois <strong>Controls</strong> ou os dois <strong>Commands</strong></p>
         <div id='stopwatch-display'>{msToISOString(this.state.secondsElapsed)}</div>
         <button id="stopwatch-start" onClick={this.startStopwatch}>Iniciar</button>
         <button id="stopwatch-stop" onClick={this.stopStopwatch}>Parar</button>
@@ -236,7 +262,7 @@ class App extends Component {
         <BestTimes times={this.state.times} />
 
         <h2>Links</h2>
-        <a href="fridrich">http://www.ws.binghamton.edu/fridrich/cube.html</a>
+        <a href="http://www.ws.binghamton.edu/fridrich/cube.html">Fridrich</a>
 
       </div>
     );
