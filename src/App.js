@@ -4,10 +4,7 @@ import firebaseui from 'firebaseui';
 
 import logo from './logo.svg';
 import './App.css';
-import {
-  config,
-  uiConfig,
-} from './Config.js';
+import { config } from './Config.js';
 
 function msToISOString(ms) {
   var sec_num = parseInt(ms, 10); // don't forget the second param
@@ -18,7 +15,7 @@ function msToISOString(ms) {
   if (hours   < 10) {hours   = "0"+hours;}
   if (minutes < 10) {minutes = "0"+minutes;}
   if (seconds < 10) {seconds = "0"+seconds;}
-  return hours+':'+minutes+':'+seconds;
+  return hours+':'+minutes+'.'+seconds;
 }
 
 class MyTimes extends Component {
@@ -117,7 +114,6 @@ class App extends Component {
     };
     document.onkeydown = (evt) =>  {
       if (!evt) evt = event;
-      console.info('evt.ctrlKey', evt);
       this.checkPCKeys(evt);
       this.checkMacKeys(evt);
     };
@@ -262,7 +258,14 @@ class App extends Component {
         <BestTimes times={this.state.times} />
 
         <h2>Links</h2>
-        <a href="http://www.ws.binghamton.edu/fridrich/cube.html">Fridrich</a>
+        <ul>
+          <li>
+            <a href="http://www.ws.binghamton.edu/fridrich/cube.html">Fridrich</a>
+          </li>
+          <li>
+            <a href="https://github.com/emilianoeloi/cronometro-cubomagico">Projeto no Github</a>
+          </li>
+        </ul>
 
       </div>
     );
