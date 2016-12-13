@@ -228,10 +228,42 @@ class App extends Component {
         newObj.key = key;
         arr.push(newObj);
       }
+      this.orderTimes(arr);
+      const dedupArr = this.dedupTimes(arr);
       this.setState({
-        times: arr,
+        times: dedupArr,
       });
     });
+  }
+
+  dedupTimes(times) {
+    const displayNames = times.map(time => time.displayName);
+    const users = [...new Set(displayNames)];
+    return times.filter((time) => {
+      for (const index in users) {
+        let user = users[index];
+        const exists = user === time.displayName;
+        if (exists) {
+          users[index] = null;
+          return true;
+        }
+      }
+      return false;
+    });
+  }
+
+  // Order Times using Insert Sorting. https://pt.wikipedia.org/wiki/Insertion_sort
+  orderTimes(times) {
+    let i, j, elect, A = times, length = times.length;
+    for (let i = 1; i < length; i++) {
+      elect = A[i];
+      j = i - 1;
+      while (j >= 0 && elect.time < A[j].time) {
+        A[j + 1] = A[j];
+        j = j - 1;
+      }
+      A[j + 1] = elect;
+    }
   }
 
   render() {
