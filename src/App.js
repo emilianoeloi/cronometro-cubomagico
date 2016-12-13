@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import firebase from 'firebase';
 import firebaseui from 'firebaseui';
+import moment from 'moment';
 
 import logo from './logo.svg';
 import './App.css';
@@ -28,7 +29,7 @@ class MyTimes extends Component {
         <legend>Meus Tempos</legend>
         <ul>
           {this.props.myTimes.map(myTime => (
-            <li key={myTime.key}>{myTime.date} - {msToISOString(myTime.time)}</li>
+            <li key={myTime.key}>{new Date(myTime.date).toLocaleDateString()} - {msToISOString(myTime.time)}</li>
           ))}
         </ul>
       </fieldset>
@@ -46,7 +47,10 @@ class BestTimes extends Component {
         <legend>Melhores Tempos</legend>
         <ul>
           {this.props.times.map(time => (
-            <li key={time.key}>{time.date} - {time.displayName} - {msToISOString(time.time)}</li>
+            <li key={time.key}>
+              {new Date(time.date).toLocaleDateString()} - 
+              {time.displayName} -
+              <strong>{msToISOString(time.time)}</strong></li>
           ))}
         </ul>
       </fieldset>
@@ -212,6 +216,7 @@ class App extends Component {
         newObj.key = key;
         arr.push(newObj);
       }
+      this.orderTimes(arr);
       this.setState({
         myTimes: arr,
       });
