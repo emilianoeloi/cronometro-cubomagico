@@ -19,6 +19,32 @@ function msToISOString(ms) {
   return hours+':'+minutes+'.'+seconds;
 }
 
+class Stopwatch extends Component {
+  render() {
+    const {
+      secondsElapsed,
+      startStopwatch,
+      stopStopwatch,
+      resetStopwatch,
+      saveStopwatchTime,
+    } = this.props;
+    return (
+      <div>
+        <div id='stopwatch-display'>{msToISOString(secondsElapsed)}</div>
+        <button className="pure-button" id="stopwatch-start" onClick={startStopwatch}>
+          Iniciar
+        </button> <button className="pure-button" id="stopwatch-stop" onClick={stopStopwatch}>
+          Parar
+        </button> <button className="pure-button" id="stopwatch-saveTime" onClick={saveStopwatchTime}>
+          Salvar Tempo
+        </button> <button className="pure-button" id="stopwatch-discardTime" onClick={resetStopwatch}>
+          Discartar Tempo
+        </button>
+      </div>
+    );
+  }
+}
+
 class MyTimes extends Component {
   render() {
     if (!this.props.myTimes) {
@@ -48,9 +74,7 @@ class BestTimes extends Component {
         <ul>
           {this.props.times.map(time => (
             <li key={time.key}>
-              {new Date(time.date).toLocaleDateString()} - 
-              {time.displayName} -
-              <strong>{msToISOString(time.time)}</strong></li>
+              {new Date(time.date).toLocaleDateString()} - {time.displayName} - <strong>{msToISOString(time.time)}</strong></li>
           ))}
         </ul>
       </fieldset>
@@ -169,11 +193,13 @@ class App extends Component {
     this.resetStopwatch();
     this.interval = setInterval(() => this.tick(), 1000);
     this.stopwatchControl.started = true;
+    document.querySelector('.App-logo').className += ' App-logo-anim';
   }
 
   stopStopwatch() {
     clearInterval(this.interval);
     this.stopwatchControl.started = false
+    document.querySelector('.App-logo').className = document.querySelector('.App-logo').className.replace(' App-logo-anim', '');
   }
 
   userKey() {
@@ -272,12 +298,28 @@ class App extends Component {
   }
 
   render() {
+    const {
+      startStopwatch,
+      stopStopwatch,
+      resetStopwatch,
+      saveStopwatchTime,
+    } = this;
+    const stopwatchProps = {
+      secondsElapsed: this.state.secondsElapsed,
+      startStopwatch,
+      stopStopwatch,
+      saveStopwatchTime,
+      resetStopwatch,
+    }
     return (
       <div className="App">
         <div className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
           <h2>Cronômetro de Cubo Mágico</h2>
+          <Stopwatch {...stopwatchProps} />
         </div>
+        <p> Inicie e pare o cronômetro teclando os dois <strong>Controls</strong> ou os dois <strong>Commands</strong></p>
+
         <p className="App-intro">
           Armazene e melhore seu tempo!
         </p>
@@ -285,11 +327,6 @@ class App extends Component {
         <div id="sign-in-status"></div>
         <div id="sign-in"></div>
         <div id="account-details"></div>
-        <p> Inicie e pare o cronômetro teclando os dois <strong>Controls</strong> ou os dois <strong>Commands</strong></p>
-        <div id='stopwatch-display'>{msToISOString(this.state.secondsElapsed)}</div>
-        <button id="stopwatch-start" onClick={this.startStopwatch}>Iniciar</button>
-        <button id="stopwatch-stop" onClick={this.stopStopwatch}>Parar</button>
-        <button id="stopwatch-saveTime" onClick={this.saveStopwatchTime}>Salvar Tempo</button>
 
         <MyTimes myTimes={this.state.myTimes} />
         <BestTimes times={this.state.times} />
