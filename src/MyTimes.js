@@ -7,15 +7,30 @@ class MyTimes extends Component {
     if (!this.props.myTimes) {
       return null;
     }
+    let i = 1;
     return (
-      <fieldset>
-        <legend>Meus Tempos</legend>
-        <ul>
+      <table className="pure-table">
+        <caption>
+          Meus Tempos
+        </caption>
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Data</th>
+                <th>Tempo</th>
+            </tr>
+        </thead>
+
+        <tbody>
           {this.props.myTimes.map(myTime => (
-            <li key={myTime.key}>{new Date(myTime.date).toLocaleDateString()} - {msToISOString(myTime.time)}</li>
+            <tr key={myTime.key} className={i%2 === 0 ? 'pure-table-odd' : ''}>
+                <td>{i++}</td>
+                <td>{new Date(myTime.date).toLocaleDateString()}</td>
+                <td>{msToISOString(myTime.time)}</td>
+            </tr>
           ))}
-        </ul>
-      </fieldset>
+        </tbody>
+      </table>
     )
   }
 }

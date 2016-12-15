@@ -168,17 +168,23 @@ class App extends Component {
         <div id="sign-in"></div>
         <div id="account-details"></div>
 
-        <MyTimes myTimes={this.state && this.state.myTimes ? this.state.myTimes : null} />
-        <BestTimes times={this.state && this.state.times ? this.state.times : null} />
+        <div className="tables">
+            <MyTimes myTimes={this.state && this.state.myTimes ? this.state.myTimes : null} />
+            <BestTimes times={this.state && this.state.times ? this.state.times : null} />
+        </div>
 
         <h2>Links</h2>
         <ul>
+          <li>
+            <a href="https://www.youtube.com/user/rafaelcinoto">Canal do Youtube: Cinoto</a>
+          </li>
           <li>
             <a href="http://www.ws.binghamton.edu/fridrich/cube.html">Fridrich</a>
           </li>
           <li>
             <a href="https://github.com/emilianoeloi/cronometro-cubomagico">Projeto no Github</a>
           </li>
+
         </ul>
 
       </div>
