@@ -115,7 +115,7 @@ class Stopwatch extends Component {
         </button> <button className="pure-button" id="stopwatch-saveTime" onClick={this.save}>
           Salvar Tempo
         </button> <button className="pure-button" id="stopwatch-discardTime" onClick={this.reset}>
-          Discartar Tempo
+          Descartar Tempo
         </button>
       </div>
     );
