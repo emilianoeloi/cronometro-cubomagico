@@ -13,14 +13,18 @@ import BestTimes from './BestTimes';
 class App extends Component {
   constructor(props) {
     super(props);
+    this.state = {
+      bestTime: 0,
+      mediumTime: 0,
+      wrostTime: 0,
+      myTimes: [],
+      times: []
+    };
     this.saveStopwatchTime = this.saveStopwatchTime.bind(this);
   }
 
   componentDidMount() {
-    this.setState({
-      myTimes: [],
-      times: []
-    });
+
     firebase.initializeApp(config);
 
     const uiConfig = {
@@ -87,14 +91,28 @@ class App extends Component {
     ref.on('value', (value) => {
       let arr = [];
       const obj = value.val();
+      let timeSum = 0;
+      let timeCount = 0;
       for (const key in obj) {
         let newObj = obj[key];
         newObj.key = key;
+        timeSum += newObj.time;
+        timeCount++;
         arr.push(newObj);
       }
       this.orderTimes(arr);
+
+      const bestTime = arr[0].time;
+      const mediumTime = timeSum / timeCount;
+      const wrostTime = arr[arr.length - 1].time;
+
       this.setState({
-        myTimes: arr,
+        myTimes: {
+          times: arr,
+          bestTime,
+          mediumTime,
+          wrostTime,
+        }
       });
     });
   }
@@ -151,6 +169,12 @@ class App extends Component {
     const stopwatchProps = {
       saveStopwatchTime: this.saveStopwatchTime,
     }
+    const myTimeProps = {
+      bestTime: this.state.myTimes.bestTime,
+      mediumTime: this.state.myTimes.mediumTime,
+      wrostTime: this.state.myTimes.wrostTime,
+      times: this.state.myTimes.times,
+    }
     return (
       <div className="App">
         <div className="App-header">
@@ -169,7 +193,7 @@ class App extends Component {
         <div id="account-details"></div>
 
         <div className="tables">
-            <MyTimes myTimes={this.state && this.state.myTimes ? this.state.myTimes : null} />
+            <MyTimes {...myTimeProps} />
             <BestTimes times={this.state && this.state.times ? this.state.times : null} />
         </div>
 
