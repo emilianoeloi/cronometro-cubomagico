@@ -12,7 +12,7 @@ class BestTimes extends Component {
     return (
       <table className="pure-table">
         <caption>
-          Melhores Tempos
+          <h2>Melhores Tempos</h2>
         </caption>
         <thead>
             <tr>

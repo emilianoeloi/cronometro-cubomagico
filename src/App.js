@@ -42,6 +42,14 @@ class App extends Component {
         // User is signed in.
         var displayName = user.displayName;
         var email = user.email;
+        var emailVerified = user.emailVerified;
+        var photoURL = user.photoURL;
+        var uid = user.uid;
+        var providerData = user.providerData;
+        user.getToken().then(function(accessToken) {
+          document.getElementById('sign-in').textContent = 'Sair';
+          document.getElementById('firebaseui-auth-container').textContent = displayName;
+        });
         this.setState({
           email,
           displayName,
@@ -50,9 +58,9 @@ class App extends Component {
         this.loadTimes();
       } else {
         // User is signed out.
-        document.getElementById('sign-in-status').textContent = 'Signed out';
-        document.getElementById('sign-in').textContent = 'Sign in';
-        document.getElementById('account-details').textContent = 'null';
+        document.getElementById('sign-in-status').textContent = 'Entre e participe';
+        document.getElementById('sign-in').textContent = 'Logar';
+        document.getElementById('account-details').textContent = '';
       }
     });
   }
@@ -182,21 +190,24 @@ class App extends Component {
           <h2>Cronômetro de Cubo Mágico</h2>
           <Stopwatch {...stopwatchProps} />
         </div>
+
         <p> Inicie e pare o cronômetro teclando os dois <strong>Controls</strong> ou os dois <strong>Commands</strong></p>
 
         <p className="App-intro">
           Armazene e melhore seu tempo!
         </p>
-        <div id="firebaseui-auth-container"></div>
-        <div id="sign-in-status"></div>
-        <div id="sign-in"></div>
-        <div id="account-details"></div>
-
-        <div className="tables">
+        <div className="pure-g">
+          <div className="pure-u-1-2">
+            <div id="firebaseui-auth-container"></div>
+            <div id="sign-in-status"></div>
+            <div id="sign-in"></div>
+            <div id="account-details"></div>
             <MyTimes {...myTimeProps} />
+          </div>
+          <div className="pure-u-1-2">
             <BestTimes times={this.state && this.state.times ? this.state.times : null} />
-        </div>
-
+          </div>
+      </div>
         <footer>
           <ul>
             <li>
