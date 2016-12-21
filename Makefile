@@ -1,3 +1,5 @@
+setup:
+	npm install
 run:
 	yarn start
 deploy:
