@@ -3,6 +3,6 @@ setup:
 test:
 	npm test
 run:
-	yarn start
+	npm start
 deploy:
-	yarn run build; firebase deploy
+	npm run build; firebase deploy
