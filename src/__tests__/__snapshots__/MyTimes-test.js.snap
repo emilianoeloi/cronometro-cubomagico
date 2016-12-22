@@ -1,0 +1,36 @@
+exports[`test test table of Times 1`] = `
+<table
+  className="pure-table">
+  <caption>
+    <h2>
+      Meus Tempos
+    </h2>
+    <h3>
+      Melhor tempo: 
+      00:00.01
+    </h3>
+    <h3>
+      Tempo médio: 
+      00:00.02
+    </h3>
+    <h3>
+      Pior tempo: 
+      00:00.03
+    </h3>
+  </caption>
+  <thead>
+    <tr>
+      <th>
+        #
+      </th>
+      <th>
+        Data
+      </th>
+      <th>
+        Tempo
+      </th>
+    </tr>
+  </thead>
+  <tbody />
+</table>
+`;

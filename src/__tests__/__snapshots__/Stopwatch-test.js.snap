@@ -1,0 +1,35 @@
+exports[`test test table of Times 1`] = `
+<div>
+  <h2
+    id="stopwatch-display">
+    00:00.00
+  </h2>
+  <button
+    className="pure-button"
+    id="stopwatch-start"
+    onClick={[Function]}>
+    Iniciar
+  </button>
+   
+  <button
+    className="pure-button"
+    id="stopwatch-stop"
+    onClick={[Function]}>
+    Parar
+  </button>
+   
+  <button
+    className="pure-button"
+    id="stopwatch-saveTime"
+    onClick={[Function]}>
+    Salvar Tempo
+  </button>
+   
+  <button
+    className="pure-button"
+    id="stopwatch-discardTime"
+    onClick={[Function]}>
+    Descartar Tempo
+  </button>
+</div>
+`;
