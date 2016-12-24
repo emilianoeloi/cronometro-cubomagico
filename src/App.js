@@ -71,6 +71,10 @@ class App extends Component {
       .split('.').join('_');
   }
 
+  removeTime(key) {
+    const ref = firebase.database().ref(`users/${this.userKey()}`).child('times');
+  }
+
   saveStopwatchTime(time) {
     const email = this.state.email;
     const displayName = this.state.displayName;
