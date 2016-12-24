@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/emilianoeloi/cronometro-cubomagico.svg?branch=master)](https://travis-ci.org/emilianoeloi/cronometro-cubomagico)
+
 # Cronômetro de Cubo Mágico Online
 
 Esse projeto tem como objetivo a implementação de um cronômetro para medir a velocidade do cubista leva para montar seu cubo, bem como armazenar para que ele tenha um histórico e manter um hanking dos melhores tempos.
