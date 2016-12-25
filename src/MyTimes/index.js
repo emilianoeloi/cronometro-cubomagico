@@ -2,11 +2,16 @@ import React, { Component } from 'react';
 
 import { msToISOString } from '../Common';
 
-import './styles.css';
+import styles from './styles.css';
 
 class MyTimes extends Component {
-  deleteTime(a) {
-    console.info('deleteTime', a.target.dataset['key']);
+  constructor(props) {
+    super(props);
+    this.removeTime = this.removeTime.bind(this);
+  }
+  removeTime(element) {
+    const key = element.target.dataset['key'];
+    this.props.removeTime(key);
   }
   render() {
     const {
@@ -14,6 +19,7 @@ class MyTimes extends Component {
       mediumTime,
       wrostTime,
       times,
+      removeTime,
     } = this.props;
     if (!times) {
       return null;
@@ -43,7 +49,7 @@ class MyTimes extends Component {
                 <td>{new Date(time.date).toLocaleDateString()}</td>
                 <td>{msToISOString(time.time)}</td>
                 <td>
-                  <button data-key={time.key} onClick={this.deleteTime.bind(time)} className="button-delete pure-button">
+                  <button data-key={time.key} onClick={this.removeTime} className="button-delete pure-button">
                     excluir
                   </button>
                 </td>

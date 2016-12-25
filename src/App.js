@@ -3,7 +3,7 @@ import firebase from 'firebase';
 import firebaseui from 'firebaseui';
 
 import logo from './logo.svg';
-import './App.css';
+import styles from './App.css';
 import { config } from './Config.js';
 import { msToISOString } from './Common';
 import Stopwatch from './Stopwatch';
@@ -21,6 +21,7 @@ class App extends Component {
       times: []
     };
     this.saveStopwatchTime = this.saveStopwatchTime.bind(this);
+    this.removeTime = this.removeTime.bind(this);
   }
 
   componentDidMount() {
@@ -72,7 +73,11 @@ class App extends Component {
   }
 
   removeTime(key) {
-    const ref = firebase.database().ref(`users/${this.userKey()}`).child('times');
+    const confirmed = confirm('Deletar?');
+    if (!confirmed) return;
+
+    const ref = firebase.database().ref(`users/${this.userKey()}`).child('times').child(key);
+    ref.remove();
   }
 
   saveStopwatchTime(time) {
@@ -124,6 +129,7 @@ class App extends Component {
           bestTime,
           mediumTime,
           wrostTime,
+          removeTime: this.removeTime,
         }
       });
     });
@@ -186,6 +192,7 @@ class App extends Component {
       mediumTime: this.state.myTimes.mediumTime,
       wrostTime: this.state.myTimes.wrostTime,
       times: this.state.myTimes.times,
+      removeTime: this.removeTime,
     }
     return (
       <div className="App">

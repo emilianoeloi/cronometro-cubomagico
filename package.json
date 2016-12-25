@@ -8,6 +8,7 @@
     "babel-preset-react": "^6.16.0",
     "enzyme": "^2.6.0",
     "jest": "^18.0.0",
+    "jest-css-modules": "^1.1.0",
     "react-addons-test-utils": "^15.4.1",
     "react-scripts": "0.8.1",
     "react-test-renderer": "^15.4.1"
@@ -24,5 +25,10 @@
     "build": "react-scripts build",
     "test": "jest",
     "eject": "react-scripts eject"
+  },
+  "jest": {
+    "moduleNameMapper": {
+      "\\.(css)$": "<rootDir>/node_modules/jest-css-modules"
+    }
   }
 }
