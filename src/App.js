@@ -77,6 +77,15 @@ class App extends Component {
     if (!confirmed) return;
 
     const ref = firebase.database().ref(`users/${this.userKey()}`).child('times').child(key);
+    ref.on('value', (value) => {
+      const obj = value.val();
+      if (obj) {
+        const internalKey = obj.timeKey;
+        console.info('internalKey', internalKey);
+        const internalRef = firebase.database().ref().child('times').child(internalKey);
+        internalRef.remove();
+      }
+    });
     ref.remove();
   }
 
@@ -85,16 +94,19 @@ class App extends Component {
     const displayName = this.state.displayName;
     const date = new Date();
 
+    /// Keys
+    const newTimeKey = firebase.database().ref().child('times').push().key;
     const newMyTimeKey = firebase.database().ref(`users/${this.userKey()}`).child('times').push().key;
+
     let myUpdate = {}
     myUpdate['/times/' + newMyTimeKey] = {
       time,
       date,
+      timeKey: newTimeKey,
     };
     firebase.database().ref(`users/${this.userKey()}`).update(myUpdate);
 
     let updates = {};
-    const newTimeKey = firebase.database().ref().child('times').push().key;
     updates['/times/' + newTimeKey] = {
       displayName,
       time,

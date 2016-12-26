@@ -34,25 +34,25 @@ class MyTimes extends Component {
           <h3>Pior tempo: {msToISOString(wrostTime)}</h3>
         </caption>
         <thead>
-            <tr>
-                <th>#</th>
-                <th>Data</th>
-                <th>Tempo</th>
-                <th></th>
-            </tr>
+          <tr>
+            <th>#</th>
+            <th>Data</th>
+            <th>Tempo</th>
+            <th></th>
+          </tr>
         </thead>
 
         <tbody>
           {times.map(time => (
             <tr key={time.key} className={i%2 === 0 ? 'pure-table-odd' : ''}>
-                <td>{i++}</td>
-                <td>{new Date(time.date).toLocaleDateString()}</td>
-                <td>{msToISOString(time.time)}</td>
-                <td>
-                  <button data-key={time.key} onClick={this.removeTime} className="button-delete pure-button">
-                    excluir
-                  </button>
-                </td>
+              <td>{i++}</td>
+              <td>{new Date(time.date).toLocaleDateString()}</td>
+              <td>{msToISOString(time.time)}</td>
+              <td>
+                <button data-key={time.key} onClick={this.removeTime} className="button-delete pure-button">
+                  excluir
+                </button>
+              </td>
             </tr>
           ))}
         </tbody>
