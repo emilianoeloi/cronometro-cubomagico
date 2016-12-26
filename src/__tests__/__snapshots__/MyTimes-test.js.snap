@@ -1,7 +1,8 @@
 exports[`test test table of Times 1`] = `
 <table
   className="pure-table">
-  <caption>
+  <caption
+    className="Table-caption">
     <h2>
       Meus Tempos
     </h2>

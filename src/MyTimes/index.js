@@ -27,7 +27,7 @@ class MyTimes extends Component {
     let i = 1;
     return (
       <table className="pure-table">
-        <caption>
+        <caption className="Table-caption">
           <h2>Meus Tempos</h2>
           <h3>Melhor tempo: {msToISOString(bestTime)}</h3>
           <h3>Tempo médio: {msToISOString(mediumTime)}</h3>

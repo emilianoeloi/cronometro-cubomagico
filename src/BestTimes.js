@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
 import { msToISOString } from './Common';
+import trophy from './trophy.svg';
 
 class BestTimes extends Component {
 
@@ -11,7 +12,8 @@ class BestTimes extends Component {
     }
     return (
       <table className="pure-table">
-        <caption>
+        <caption className="Table-caption">
+          <img src={trophy} className="BestTimes-trophy" alt="trophy" />
           <h2>Melhores Tempos</h2>
         </caption>
         <thead>

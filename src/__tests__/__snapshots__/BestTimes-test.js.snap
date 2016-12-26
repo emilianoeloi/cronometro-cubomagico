@@ -1,7 +1,12 @@
 exports[`test test table of BestTimes 1`] = `
 <table
   className="pure-table">
-  <caption>
+  <caption
+    className="Table-caption">
+    <img
+      alt="trophy"
+      className="BestTimes-trophy"
+      src="test-file-stub" />
     <h2>
       Melhores Tempos
     </h2>

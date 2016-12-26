@@ -28,7 +28,8 @@
   },
   "jest": {
     "moduleNameMapper": {
-      "\\.(css)$": "<rootDir>/node_modules/jest-css-modules"
+      "\\.(css)$": "<rootDir>/node_modules/jest-css-modules",
+      "\\.(svg)$": "<rootDir>/src/__mocks__/fileMock.js"
     }
   }
 }

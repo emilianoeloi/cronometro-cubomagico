@@ -198,39 +198,36 @@ class App extends Component {
       <div className="App">
         <div className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
-          <h2>Cronômetro de Cubo Mágico</h2>
+          <h2>Cronômetro de Cubo Mágico Online</h2>
           <Stopwatch {...stopwatchProps} />
+          <p> Inicie e pare o cronômetro teclando os dois <strong>Controls</strong> ou os dois <strong>Commands</strong></p>
         </div>
 
-        <p> Inicie e pare o cronômetro teclando os dois <strong>Controls</strong> ou os dois <strong>Commands</strong></p>
-
-        <p className="App-intro">
-          Armazene e melhore seu tempo!
-        </p>
         <div className="pure-g">
-          <div className="pure-u-1-2">
-            <div id="firebaseui-auth-container"></div>
+          <div className="pure-u-1 pure-u-md-1-2 pure-u-lg-1-2">
+            <div id="firebaseui-auth-container" className="App-user"></div>
             <div id="sign-in-status"></div>
             <div id="sign-in"></div>
             <div id="account-details"></div>
             <MyTimes {...myTimeProps} />
           </div>
-          <div className="pure-u-1-2">
+          <div className="pure-u-1 pure-u-md-1-2 pure-u-lg-1-2">
             <BestTimes times={this.state && this.state.times ? this.state.times : null} />
           </div>
-      </div>
-        <footer>
-          <ul>
-            <li>
-              <a href="https://www.youtube.com/user/rafaelcinoto">Canal do Youtube: Cinoto</a>
-            </li>
-            <li>
-              <a href="http://www.ws.binghamton.edu/fridrich/cube.html">Fridrich</a>
-            </li>
-            <li>
-              <a href="https://github.com/emilianoeloi/cronometro-cubomagico">Projeto no Github</a>
-            </li>
-          </ul>
+        </div>
+        <footer className="pure-g">
+          <div className="pure-u-1 pure-u-md-1-2 pure-u-lg-1-2">
+            <h4 className="Footer-title">Aprenda a montar</h4>
+              <a href="https://www.youtube.com/user/rafaelcinoto">
+                Canal do Youtube: Cinoto
+              </a> | <a href="http://www.ws.binghamton.edu/fridrich/cube.html">
+                Fridrich
+              </a>
+          </div>
+          <div className="pure-u-1 pure-u-md-1-2 pure-u-lg-1-2">
+            <h4 className="Footer-title">Contribua</h4>
+            <a href="https://github.com/emilianoeloi/cronometro-cubomagico">Projeto no Github</a>
+          </div>
         </footer>
 
       </div>
