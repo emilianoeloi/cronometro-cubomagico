@@ -8,7 +8,10 @@ class Stopwatch extends Component {
     this.stop = this.stop.bind(this);
     this.reset = this.reset.bind(this);
     this.save = this.save.bind(this);
+    this.resetTwoKeys = this.resetTwoKeys.bind(this);
     this.state = {secondsElapsed: 0};
+    this.focused = true;
+
   }
 
   tick() {
@@ -19,11 +22,6 @@ class Stopwatch extends Component {
 
   reset() {
     this.setState({ secondsElapsed: 0});
-    document.onkeydown = (evt) =>  {
-      if (!evt) evt = event;
-      this.checkPCKeys(evt);
-      this.checkMacKeys(evt);
-    };
   }
 
   start() {
@@ -88,19 +86,32 @@ class Stopwatch extends Component {
     }
   }
 
-  componentDidMount() {
-    this.control = {
-      started: false,
-    }
+  resetTwoKeys() {
     this.twoKeys = {
       first: false,
       second: false,
       stop: false,
     };
+  }
+
+  componentDidMount() {
+    this.control = {
+      started: false,
+    }
+    this.resetTwoKeys();
     document.onkeydown = (evt) =>  {
       if (!evt) evt = event;
       this.checkPCKeys(evt);
       this.checkMacKeys(evt);
+    };
+
+    window.onfocus = () => {
+      this.focused = true;
+    };
+    window.onblur = () => {
+      this.focused = false;
+      console.info('window.onfocus');
+      this.resetTwoKeys();
     };
   }
 
