@@ -20,7 +20,7 @@ http://cct.cubing.net/
 
 ## Desenvolvimento
 
-Feito com [Create React App]()
+Feito com [Create React App](https://github.com/facebookincubator/create-react-app).
 
 É preciso ter uma conta no Firebase (https://console.firebase.google.com).
 
