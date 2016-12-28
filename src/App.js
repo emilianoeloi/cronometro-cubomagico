@@ -250,6 +250,9 @@ class App extends Component {
             <h4 className="Footer-title">Contribua</h4>
             <a href="https://github.com/emilianoeloi/cronometro-cubomagico">Projeto no Github</a>
           </div>
+          <div className="pure-u-1">
+            <p>Croncube - www.croncube.com.br</p>
+          </div>
         </footer>
 
       </div>
