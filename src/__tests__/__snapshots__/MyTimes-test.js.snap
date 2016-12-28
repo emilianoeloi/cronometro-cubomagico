@@ -8,15 +8,15 @@ exports[`test test table of Times 1`] = `
     </h2>
     <h3>
       Melhor tempo: 
-      00:00.01
+      00\' 00.00\"
     </h3>
     <h3>
       Tempo médio: 
-      00:00.02
+      00\' 00.00\"
     </h3>
     <h3>
       Pior tempo: 
-      00:00.03
+      00\' 00.00\"
     </h3>
   </caption>
   <thead>
