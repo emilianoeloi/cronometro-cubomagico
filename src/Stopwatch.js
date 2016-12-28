@@ -18,7 +18,7 @@ class Stopwatch extends Component {
 
   tick() {
     this.setState((prevState) => ({
-      secondsElapsed: prevState.secondsElapsed + 1
+      secondsElapsed: prevState.secondsElapsed + 1000
     }));
   }
 
@@ -31,13 +31,15 @@ class Stopwatch extends Component {
     this.reset();
     this.interval = setInterval(() => this.tick(), 1000);
     this.control.started = true;
+    this.initialDate = new Date();
     document.querySelector('.App-logo').className += ' App-logo-anim';
   }
   save() {
     const {
       saveStopwatchTime,
     } = this.props;
-    saveStopwatchTime(this.state.secondsElapsed);
+    this.deltaDate = this.finalDate - this.initialDate;
+    saveStopwatchTime(this.deltaDate);
   }
 
   stop() {
@@ -49,6 +51,7 @@ class Stopwatch extends Component {
       label: 'time',
       value: this.state.secondsElapsed
     });
+    this.finalDate = new Date();
     document.querySelector('.App-logo').className = document.querySelector('.App-logo').className.replace(' App-logo-anim', '');
   }
 
