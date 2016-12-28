@@ -4701,6 +4701,12 @@ react-dom@^15.4.1:
     loose-envify "^1.1.0"
     object-assign "^4.1.0"
 
+react-ga@^2.1.2:
+  version "2.1.2"
+  resolved "https://registry.yarnpkg.com/react-ga/-/react-ga-2.1.2.tgz#7af206c5e8761d7176e15773fe826acdb70ac653"
+  dependencies:
+    object-assign "^4.0.1"
+
 react-scripts@0.8.1:
   version "0.8.1"
   resolved "https://registry.yarnpkg.com/react-scripts/-/react-scripts-0.8.1.tgz#35d7528e980af14e0d0defcec3d89ead2a12bf87"

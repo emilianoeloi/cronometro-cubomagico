@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import ReactGA from 'react-ga';
+
 import { msToISOString } from './Common';
 
 class Stopwatch extends Component {
@@ -41,6 +43,12 @@ class Stopwatch extends Component {
   stop() {
     clearInterval(this.interval);
     this.control.started = false
+    ReactGA.event({
+      category: 'Stopwatch',
+      action: 'stop',
+      label: 'time',
+      value: this.state.secondsElapsed
+    });
     document.querySelector('.App-logo').className = document.querySelector('.App-logo').className.replace(' App-logo-anim', '');
   }
 

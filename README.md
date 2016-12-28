@@ -20,18 +20,21 @@ http://cct.cubing.net/
 
 ## Desenvolvimento
 
+Feito com [Create React App]()
+
 É preciso ter uma conta no Firebase (https://console.firebase.google.com).
 
 1) Crie um projeto Web.
 
-2) Crie um arquivo `Config.js` dentro da pasta `src` no formato a seguir com sua chave de acesso ao firebase.
+2) Crie um arquivo `Config.js` dentro da pasta `src` no formato a seguir com sua chave de acesso ao firebase e para o Google Analytics.
 ```javascript
 const config = {
-  apiKey: "{sua_chave_aqui}",
-  authDomain: "{nome_do_seu_app_web}.firebaseapp.com",
-  databaseURL: "https://{nome_do_seu_app_web}.firebaseio.com",
-  storageBucket: "{nome_do_seu_app_web}.appspot.com",
-  messagingSenderId: "{message_sender_id}"
+  apiKey: '{sua_chave_aqui}',
+  authDomain: '{nome_do_seu_app_web}.firebaseapp.com',
+  databaseURL: 'https://{nome_do_seu_app_web}.firebaseio.com',
+  storageBucket: '{nome_do_seu_app_web}.appspot.com',
+  messagingSenderId: '{message_sender_id}',
+  gaUA: '{UA do google analytics}'
 };
 
 export { config };

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import firebase from 'firebase';
 import firebaseui from 'firebaseui';
+import ReactGA from 'react-ga';
 
 import logo from './logo.svg';
 import styles from './App.css';
@@ -25,11 +26,10 @@ class App extends Component {
   }
 
   componentDidMount() {
-
     firebase.initializeApp(config);
 
     const uiConfig = {
-      signInSuccessUrl: 'https://cronometro-cubomagico.firebaseapp.com/',
+      signInSuccessUrl: 'https://croncube.com.br/',
       signInOptions: [
         firebase.auth.GoogleAuthProvider.PROVIDER_ID
       ],
@@ -39,10 +39,11 @@ class App extends Component {
     ui.start('#firebaseui-auth-container', uiConfig);
 
     firebase.auth().onAuthStateChanged((user) => {
+      let email = user.email;
       if (user) {
         // User is signed in.
         var displayName = user.displayName;
-        var email = user.email;
+        email = user.email;
         var emailVerified = user.emailVerified;
         var photoURL = user.photoURL;
         var uid = user.uid;
@@ -58,11 +59,20 @@ class App extends Component {
         this.loadMyTimes();
         this.loadTimes();
       } else {
+        email = 'anonymous';
         // User is signed out.
         document.getElementById('sign-in-status').textContent = 'Entre e participe';
         document.getElementById('sign-in').textContent = 'Logar';
         document.getElementById('account-details').textContent = '';
       }
+      ReactGA.initialize(config.gaUA, {
+        debug: false,
+        titleCase: false,
+        gaOptions: {
+          userId: email
+        }
+      });
+      ReactGA.pageview('/index');
     });
   }
 
