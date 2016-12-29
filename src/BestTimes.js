@@ -31,7 +31,7 @@ class BestTimes extends Component {
                 <td>{i++}</td>
                 <td>{new Date(time.date).toLocaleDateString()}</td>
                 <td>{time.displayName}</td>
-                <td>{msToISOString(time.time)}</td>
+                <td className="time-formated">{msToISOString(time.time)}</td>
             </tr>
           ))}
         </tbody>

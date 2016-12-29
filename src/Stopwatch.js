@@ -13,12 +13,12 @@ class Stopwatch extends Component {
     this.resetTwoKeys = this.resetTwoKeys.bind(this);
     this.state = {secondsElapsed: 0};
     this.focused = true;
-
+    this.step = 1000 / 16;
   }
 
   tick() {
     this.setState((prevState) => ({
-      secondsElapsed: prevState.secondsElapsed + 1000
+      secondsElapsed: prevState.secondsElapsed + this.step
     }));
   }
 
@@ -29,7 +29,7 @@ class Stopwatch extends Component {
   start() {
     if (this.control.started) return;
     this.reset();
-    this.interval = setInterval(() => this.tick(), 1000);
+    this.interval = setInterval(() => this.tick(), this.step);
     this.control.started = true;
     this.initialDate = new Date();
     document.querySelector('.App-logo').className += ' App-logo-anim';

@@ -38,6 +38,10 @@
   margin-top: 1px !important;
 }
 
+.time-formated {
+  white-space: nowrap;
+}
+
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }

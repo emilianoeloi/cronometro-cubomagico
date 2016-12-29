@@ -251,7 +251,7 @@ class App extends Component {
             <a href="https://github.com/emilianoeloi/cronometro-cubomagico">Projeto no Github</a>
           </div>
           <div className="pure-u-1">
-            <p>Croncube - www.croncube.com.br</p>
+            <p>2016-2016 - Croncube - www.croncube.com.br - 1.1.2</p>
           </div>
         </footer>
 

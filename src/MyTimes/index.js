@@ -47,7 +47,7 @@ class MyTimes extends Component {
             <tr key={time.key} className={i%2 === 0 ? 'pure-table-odd' : ''}>
               <td>{i++}</td>
               <td>{new Date(time.date).toLocaleDateString()}</td>
-              <td>{msToISOString(time.time)}</td>
+              <td className="time-formated">{msToISOString(time.time)}</td>
               <td>
                 <button data-key={time.key} onClick={this.removeTime} className="button-delete pure-button">
                   excluir
