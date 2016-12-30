@@ -1,36 +1,51 @@
 exports[`test test table of Times 1`] = `
-<div>
-  <h2
-    id="stopwatch-display">
-    00\' 00.00\"
-  </h2>
-  <button
-    className="pure-button"
-    id="stopwatch-start"
-    onClick={[Function]}>
-    Iniciar
-  </button>
-   
-  <button
-    className="pure-button"
-    id="stopwatch-stop"
-    onClick={[Function]}>
-    Parar
-  </button>
-   
-  <button
-    className="pure-button"
-    disabled={true}
-    id="stopwatch-saveTime"
-    onClick={[Function]}>
-    Salvar Tempo
-  </button>
-   
-  <button
-    className="pure-button"
-    id="stopwatch-discardTime"
-    onClick={[Function]}>
-    Descartar Tempo
-  </button>
+<div
+  className="pure-g">
+  <div
+    className="pure-u-1">
+    <h2
+      id="stopwatch-display">
+      00\' 00.00\"
+    </h2>
+  </div>
+  <div
+    className="pure-u-1">
+    <div
+      className="l-box">
+      <button
+        className="pure-button button-start"
+        id="stopwatch-start"
+        onClick={[Function]}>
+        Iniciar
+      </button>
+       
+      <button
+        className="pure-button button-stop"
+        id="stopwatch-stop"
+        onClick={[Function]}>
+        Parar
+      </button>
+    </div>
+  </div>
+  <div
+    className="pure-u-1">
+    <div
+      className="l-box">
+      <button
+        className="pure-button pure-button-active"
+        disabled={true}
+        id="stopwatch-saveTime"
+        onClick={[Function]}>
+        Salvar Tempo
+      </button>
+       
+      <button
+        className="pure-button pure-button-active"
+        id="stopwatch-discardTime"
+        onClick={[Function]}>
+        Descartar Tempo
+      </button>
+    </div>
+  </div>
 </div>
 `;
