@@ -2,8 +2,6 @@ import React, { Component } from 'react';
 
 import { msToISOString } from '../Common';
 
-import styles from './styles.css';
-
 class MyTimes extends Component {
   constructor(props) {
     super(props);

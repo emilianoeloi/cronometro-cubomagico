@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import ReactGA from 'react-ga';
 
-import { msToISOString } from './Common';
+import { msToISOString } from '../Common';
 
 class Stopwatch extends Component {
   constructor(props) {
@@ -127,18 +127,32 @@ class Stopwatch extends Component {
   }
 
   render() {
+    const {
+      logged
+    } = this.props;
     return (
-      <div>
-        <h2 id='stopwatch-display'>{msToISOString(this.state.secondsElapsed)}</h2>
-        <button className="pure-button" id="stopwatch-start" onClick={this.start}>
-          Iniciar
-        </button> <button className="pure-button" id="stopwatch-stop" onClick={this.stop}>
-          Parar
-        </button> <button className="pure-button" id="stopwatch-saveTime" onClick={this.save}>
-          Salvar Tempo
-        </button> <button className="pure-button" id="stopwatch-discardTime" onClick={this.reset}>
-          Descartar Tempo
-        </button>
+      <div className="pure-g">
+        <div className="pure-u-1">
+          <h2 id='stopwatch-display'>{msToISOString(this.state.secondsElapsed)}</h2>
+        </div>
+        <div className="pure-u-1">
+          <div className="l-box">
+            <button className="pure-button button-start" id="stopwatch-start" onClick={this.start}>
+              Iniciar
+            </button> <button className="pure-button button-stop" id="stopwatch-stop" onClick={this.stop}>
+              Parar
+            </button>
+          </div>
+        </div>
+        <div className="pure-u-1">
+          <div className="l-box">
+            <button disabled={!logged} className="pure-button pure-button-active" id="stopwatch-saveTime" onClick={this.save}>
+              Salvar Tempo
+            </button> <button className="pure-button pure-button-active" id="stopwatch-discardTime" onClick={this.reset}>
+              Descartar Tempo
+            </button>
+          </div>
+        </div>
       </div>
     );
   }

@@ -20,6 +20,7 @@ exports[`test test table of Times 1`] = `
    
   <button
     className="pure-button"
+    disabled={true}
     id="stopwatch-saveTime"
     onClick={[Function]}>
     Salvar Tempo

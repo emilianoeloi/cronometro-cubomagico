@@ -23,6 +23,7 @@ class App extends Component {
     };
     this.saveStopwatchTime = this.saveStopwatchTime.bind(this);
     this.removeTime = this.removeTime.bind(this);
+    this.logged = false;
   }
 
   componentDidMount() {
@@ -39,7 +40,7 @@ class App extends Component {
     ui.start('#firebaseui-auth-container', uiConfig);
 
     firebase.auth().onAuthStateChanged((user) => {
-      let email = user.email;
+      let email;
       if (user) {
         // User is signed in.
         var displayName = user.displayName;
@@ -49,7 +50,7 @@ class App extends Component {
         var uid = user.uid;
         var providerData = user.providerData;
         user.getToken().then(function(accessToken) {
-          document.getElementById('sign-in').textContent = 'Sair';
+          document.getElementById('sign-in').textContent = '';
           document.getElementById('firebaseui-auth-container').textContent = displayName;
         });
         this.setState({
@@ -58,12 +59,14 @@ class App extends Component {
         });
         this.loadMyTimes();
         this.loadTimes();
+        this.logged = true;
       } else {
         email = 'anonymous';
         // User is signed out.
-        document.getElementById('sign-in-status').textContent = 'Entre e participe';
-        document.getElementById('sign-in').textContent = 'Logar';
+        document.getElementById('sign-in-status').innerHTML = '<h4>Faça login para gravar seus tempos!</h4>';
+        document.getElementById('sign-in').textContent = '';
         document.getElementById('account-details').textContent = '';
+        this.logged = false;
       }
       ReactGA.initialize(config.gaUA, {
         debug: false,
@@ -208,14 +211,15 @@ class App extends Component {
   render() {
     const stopwatchProps = {
       saveStopwatchTime: this.saveStopwatchTime,
-    }
+      logged: this.logged,
+    };
     const myTimeProps = {
       bestTime: this.state.myTimes.bestTime,
       mediumTime: this.state.myTimes.mediumTime,
       wrostTime: this.state.myTimes.wrostTime,
       times: this.state.myTimes.times,
       removeTime: this.removeTime,
-    }
+    };
     return (
       <div className="App">
         <div className="App-header">
@@ -227,10 +231,12 @@ class App extends Component {
 
         <div className="pure-g">
           <div className="pure-u-1 pure-u-md-1-2 pure-u-lg-1-2">
-            <div id="firebaseui-auth-container" className="App-user"></div>
-            <div id="sign-in-status"></div>
-            <div id="sign-in"></div>
-            <div id="account-details"></div>
+            <div className="l-box">
+              <div id="firebaseui-auth-container" className="App-user"></div>
+              <div id="sign-in-status"></div>
+              <div id="sign-in"></div>
+              <div id="account-details"></div>
+            </div>
             <MyTimes {...myTimeProps} />
           </div>
           <div className="pure-u-1 pure-u-md-1-2 pure-u-lg-1-2">
@@ -239,19 +245,25 @@ class App extends Component {
         </div>
         <footer className="pure-g">
           <div className="pure-u-1 pure-u-md-1-2 pure-u-lg-1-2">
-            <h4 className="Footer-title">Aprenda a montar</h4>
+            <div className="r-box">
+              <h4>Aprenda a montar</h4>
               <a href="https://www.youtube.com/user/rafaelcinoto">
                 Canal do Youtube: Cinoto
               </a> | <a href="http://www.ws.binghamton.edu/fridrich/cube.html">
                 Fridrich
               </a>
+            </div>
           </div>
           <div className="pure-u-1 pure-u-md-1-2 pure-u-lg-1-2">
-            <h4 className="Footer-title">Contribua</h4>
-            <a href="https://github.com/emilianoeloi/cronometro-cubomagico">Projeto no Github</a>
+            <div className="r-box">
+              <h4>Contribua</h4>
+              <a href="https://github.com/emilianoeloi/cronometro-cubomagico">Projeto no Github</a>
+            </div>
           </div>
           <div className="pure-u-1">
-            <p>2016-2016 - Croncube - www.croncube.com.br - 1.1.2</p>
+            <div className="r-box">
+              <p>2016-2016 - Croncube - www.croncube.com.br - 1.1.3</p>
+            </div>
           </div>
         </footer>
 

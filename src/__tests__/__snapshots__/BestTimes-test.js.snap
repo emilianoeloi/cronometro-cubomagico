@@ -27,6 +27,35 @@ exports[`test test table of BestTimes 1`] = `
       </th>
     </tr>
   </thead>
-  <tbody />
+  <tbody>
+    <tr
+      className="">
+      <td>
+        1
+      </td>
+      <td>
+        12/29/2016
+      </td>
+      <td />
+      <td
+        className="time-formated">
+        00\' 02.00\"
+      </td>
+    </tr>
+    <tr
+      className="pure-table-odd">
+      <td>
+        2
+      </td>
+      <td>
+        12/29/2016
+      </td>
+      <td />
+      <td
+        className="time-formated">
+        00\' 03.00\"
+      </td>
+    </tr>
+  </tbody>
 </table>
 `;

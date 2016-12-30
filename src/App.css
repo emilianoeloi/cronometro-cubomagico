@@ -42,6 +42,35 @@
   white-space: nowrap;
 }
 
+.l-box {
+  padding: .5em;
+}
+.r-box {
+  padding: .2em;
+}
+
+.button-delete {
+  background: rgb(202, 60, 60); /* this is a maroon */
+  color: #fff;
+  font-size: 70%;
+}
+
+.button-control {
+  background: rgb(66, 184, 221);
+  font-size: 85%;
+  color: #fff;
+}
+
+.button-start {
+  color: #fff;
+  background: rgb(28, 184, 65);
+}
+
+.button-stop {
+  color: #fff;
+  background: rgb(202, 60, 60);
+}
+
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
