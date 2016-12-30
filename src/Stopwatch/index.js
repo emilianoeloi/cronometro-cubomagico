@@ -112,7 +112,6 @@ class Stopwatch extends Component {
     this.resetTwoKeys();
     document.onkeydown = (evt) =>  {
       if (!evt) evt = event;
-      console.info(evt);
       this.checkPCKeys(evt);
       this.checkMacKeys(evt);
     };
