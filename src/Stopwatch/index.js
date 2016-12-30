@@ -31,15 +31,13 @@ class Stopwatch extends Component {
     this.reset();
     this.interval = setInterval(() => this.tick(), this.step);
     this.control.started = true;
-    this.initialDate = new Date();
     document.querySelector('.App-logo').className += ' App-logo-anim';
   }
   save() {
     const {
       saveStopwatchTime,
     } = this.props;
-    this.deltaDate = this.finalDate - this.initialDate;
-    saveStopwatchTime(this.deltaDate);
+    saveStopwatchTime(this.state.secondsElapsed);
   }
 
   stop() {
@@ -51,7 +49,6 @@ class Stopwatch extends Component {
       label: 'time',
       value: this.state.secondsElapsed
     });
-    this.finalDate = new Date();
     document.querySelector('.App-logo').className = document.querySelector('.App-logo').className.replace(' App-logo-anim', '');
   }
 
@@ -121,7 +118,6 @@ class Stopwatch extends Component {
     };
     window.onblur = () => {
       this.focused = false;
-      console.info('window.onfocus');
       this.resetTwoKeys();
     };
   }

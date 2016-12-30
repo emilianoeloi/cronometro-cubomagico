@@ -6,7 +6,6 @@ import trophy from './trophy.svg';
 class BestTimes extends Component {
 
   render() {
-    console.info('this.props.times', this.props.times);
     let i = 1;
     if (!this.props.times || this.props.times.length === 0) {
       return null;

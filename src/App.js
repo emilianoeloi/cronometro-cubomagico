@@ -95,7 +95,6 @@ class App extends Component {
       const obj = value.val();
       if (obj) {
         const internalKey = obj.timeKey;
-        console.info('internalKey', internalKey);
         const internalRef = firebase.database().ref().child('times').child(internalKey);
         internalRef.remove();
       }
