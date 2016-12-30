@@ -50,7 +50,7 @@ class App extends Component {
         var uid = user.uid;
         var providerData = user.providerData;
         user.getToken().then(function(accessToken) {
-          document.getElementById('sign-in').textContent = '';
+          document.getElementById('sign-in').textContent = ' ';
           document.getElementById('firebaseui-auth-container').textContent = displayName;
         });
         this.setState({
@@ -64,7 +64,7 @@ class App extends Component {
         email = 'anonymous';
         // User is signed out.
         document.getElementById('sign-in-status').innerHTML = '<h4>Faça login para gravar seus tempos!</h4>';
-        document.getElementById('sign-in').textContent = '';
+        document.getElementById('sign-in').textContent = ' ';
         document.getElementById('account-details').textContent = '';
         this.logged = false;
       }
