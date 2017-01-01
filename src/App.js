@@ -262,7 +262,7 @@ class App extends Component {
           </div>
           <div className="pure-u-1">
             <div className="r-box">
-              <p>2016-2016 - Croncube - www.croncube.com.br - 1.1.4</p>
+              <p>2016-2017 - Croncube - www.croncube.com.br - 1.1.5 - </p>
             </div>
           </div>
         </footer>
