@@ -10,6 +10,7 @@ import { msToISOString } from './Common';
 import Stopwatch from './Stopwatch';
 import MyTimes from './MyTimes';
 import BestTimes from './BestTimes';
+import Footer from './Footer';
 
 class App extends Component {
   constructor(props) {
@@ -243,30 +244,7 @@ class App extends Component {
             <BestTimes times={this.state && this.state.times ? this.state.times : null} />
           </div>
         </div>
-        <footer className="pure-g">
-          <div className="pure-u-1 pure-u-md-1-2 pure-u-lg-1-2">
-            <div className="r-box">
-              <h4>Aprenda a montar</h4>
-              <a href="https://www.youtube.com/user/rafaelcinoto">
-                Canal do Youtube: Cinoto
-              </a> | <a href="http://www.ws.binghamton.edu/fridrich/cube.html">
-                Fridrich
-              </a>
-            </div>
-          </div>
-          <div className="pure-u-1 pure-u-md-1-2 pure-u-lg-1-2">
-            <div className="r-box">
-              <h4>Contribua</h4>
-              <a href="https://github.com/emilianoeloi/cronometro-cubomagico">Projeto no Github</a>
-            </div>
-          </div>
-          <div className="pure-u-1">
-            <div className="r-box">
-              <p>2016-2017 - Croncube - www.croncube.com.br - 1.1.5 - </p>
-            </div>
-          </div>
-        </footer>
-
+        <Footer />
       </div>
     );
   }
