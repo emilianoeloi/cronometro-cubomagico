@@ -32,7 +32,7 @@ class Footer extends Component {
             <p>
               <a href="https://github.com/emilianoeloi/cronometro-cubomagico/blob/master/LICENSE">
                 APACHE-2.0
-              </a> 2016-2017 Croncube www.croncube.com.br 1.1.6
+              </a> 2016-2017 Croncube www.croncube.com.br 1.2.0
             </p>
           </div>
         </div>

@@ -1,5 +1,11 @@
 {
- "name": "Croncube",
+ "name": "croncube",
+ "short_name": "croncube",
+ "start_url": "index.html",
+ "background_color": "#ffffff",
+ "theme_color": "#000000",
+ "display": "standalone",
+ "orientation": "portrait",
  "icons": [
   {
    "src": "\/android-icon-36x36.png",
