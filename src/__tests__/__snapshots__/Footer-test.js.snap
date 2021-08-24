@@ -7,7 +7,7 @@ exports[`test test Footer 1`] = `
       className="r-box">
       <h4>
         <a
-          href="https://www.youtube.com/watch?v=IrY5JjSFR8I&t=5s"
+          href="https://www.youtube.com/watch?v=IrY5JjSFR8I"
           target="_blank">
           Aprenda a montar: 
         </a>
@@ -52,7 +52,7 @@ exports[`test test Footer 1`] = `
           href="https://github.com/emilianoeloi/cronometro-cubomagico/blob/master/LICENSE">
           APACHE-2.0
         </a>
-         2016-2017 Croncube www.croncube.com.br 1.2.0
+         2016-2021 Croncube www.croncube.com.br 2.0.0
       </p>
     </div>
   </div>

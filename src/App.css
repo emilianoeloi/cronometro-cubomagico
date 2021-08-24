@@ -1,3 +1,7 @@
+#randomstate {
+  visibility: hidden;
+}
+
 .App {
   text-align: center;
 }
@@ -69,6 +73,11 @@
 .button-stop {
   color: #fff;
   background: rgb(202, 60, 60);
+}
+
+.button-shuffle {
+  color: #fff;
+  background: rgb(28, 70, 184);
 }
 
 @keyframes App-logo-spin {
