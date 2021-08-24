@@ -11,6 +11,7 @@ import Stopwatch from './Stopwatch';
 import MyTimes from './MyTimes';
 import BestTimes from './BestTimes';
 import Footer from './Footer';
+import Shuffle from './Shuffle';
 
 class App extends Component {
   constructor(props) {
@@ -46,8 +47,7 @@ class App extends Component {
     const uiConfig = {
       signInSuccessUrl: 'https://croncube.com.br/',
       signInOptions: [
-        firebase.auth.GoogleAuthProvider.PROVIDER_ID,
-        firebase.auth.FacebookAuthProvider.PROVIDER_ID
+        firebase.auth.GoogleAuthProvider.PROVIDER_ID
       ],
       tosUrl: 'https://cronometro-cubomagico.firebaseapp.com/'
     };
@@ -239,6 +239,7 @@ class App extends Component {
         <div className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
           <h2>Cronômetro de Cubo Mágico Online</h2>
+          <Shuffle />
           <Stopwatch {...stopwatchProps} />
           <p> Inicie e pare o cronômetro teclando os dois <strong>Controls</strong> ou os dois <strong>Commands</strong></p>
         </div>

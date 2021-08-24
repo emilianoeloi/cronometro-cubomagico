@@ -4,20 +4,6 @@
 
 Esse projeto tem como objetivo a implementação de um cronômetro para medir a velocidade do cubista leva para montar seu cubo, bem como armazenar para que ele tenha um histórico e manter um hanking dos melhores tempos.
 
-## Outros cronômetros
-
-http://www.cubetimer.com/
-
-https://cstimer.net/
-
-https://www.qqtimer.net/
-
-https://www.cubemania.org/puzzles/3x3x3/timer
-
-http://cinoto.com.br/website/index.php/prisma1
-
-http://cct.cubing.net/
-
 ## Desenvolvimento
 
 Feito com [Create React App](https://github.com/facebookincubator/create-react-app).
@@ -57,3 +43,21 @@ make run
 ```bash
 make deploy
 ```
+
+## Outros cronômetros
+
+http://www.cubetimer.com/
+
+https://cstimer.net/
+
+https://www.qqtimer.net/
+
+https://www.cubemania.org/puzzles/3x3x3/timer
+
+http://cinoto.com.br/website/index.php/prisma1
+
+http://cct.cubing.net/
+
+## Referências
+
+cube.js -- JavaScript library for modeling and solving the 3x3x3 Rubik's Cube - https://github.com/ldez/cubejs Acessando em 24/08/2021
