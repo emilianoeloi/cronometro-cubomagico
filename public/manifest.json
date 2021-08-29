@@ -1,11 +1,19 @@
 {
- "name": "croncube",
- "short_name": "croncube",
+ "name": "Croncube",
+ "short_name": "Croncube",
+ "description": "Esse projeto tem como objetivo a implementação de um cronômetro para medir a velocidade do cubista leva para montar seu cubo, bem como armazenar para que ele tenha um histórico e manter um hanking dos melhores tempos.",
  "start_url": "index.html",
  "background_color": "#ffffff",
  "theme_color": "#000000",
  "display": "standalone",
  "orientation": "portrait",
+ "author": "Emiliano Silva Barbosa",
+ "developer": {
+    "name": "Emiliano Elói Silva Barbosa",
+    "url": "https://github.com/emilianoeloi"
+  },
+  "manifest_version": 2,
+  "version": "2.0.0",
  "icons": [
   {
    "src": "\/android-icon-36x36.png",
