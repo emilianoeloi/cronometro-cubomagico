@@ -2,6 +2,8 @@
 
 # Cronômetro de Cubo Mágico Online
 
+![2.0.0](2.0.0.png)
+
 Esse projeto tem como objetivo a implementação de um cronômetro para medir a velocidade do cubista leva para montar seu cubo, bem como armazenar para que ele tenha um histórico e manter um hanking dos melhores tempos.
 
 ## Desenvolvimento
