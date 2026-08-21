@@ -6,6 +6,8 @@
 
 Esse projeto tem como objetivo a implementação de um cronômetro para medir a velocidade do cubista leva para montar seu cubo, bem como armazenar para que ele tenha um histórico e manter um ranking dos melhores tempos.
 
+Quer contribuir? Veja o [guia de contribuição](CONTRIBUTING.md).
+
 ## Tecnologias
 
 - [React 15](https://legacy.reactjs.org/) (componentes de classe, sem hooks)
