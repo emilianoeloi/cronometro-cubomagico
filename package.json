@@ -3,34 +3,21 @@
   "version": "0.1.0",
   "private": true,
   "devDependencies": {
-    "babel-jest": "^18.0.0",
-    "babel-preset-es2015": "^6.18.0",
-    "babel-preset-react": "^6.16.0",
-    "enzyme": "^2.6.0",
-    "jest": "^18.0.0",
-    "jest-css-modules": "^1.1.0",
-    "react-addons-test-utils": "^15.4.1",
-    "react-scripts": "0.8.1",
-    "react-test-renderer": "^15.4.1"
+    "@vitejs/plugin-react": "^4.7.0",
+    "jsdom": "^30.0.1",
+    "react-test-renderer": "^15.4.1",
+    "vite": "^7.3.6",
+    "vitest": "^4.1.11"
   },
   "dependencies": {
-    "firebase": "^3.6.2",
-    "firebaseui": "^1.0.0",
     "moment": "^2.17.1",
     "react": "^15.4.1",
     "react-dom": "^15.4.1",
     "react-ga": "^2.1.2"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "jest",
-    "eject": "react-scripts eject"
-  },
-  "jest": {
-    "moduleNameMapper": {
-      "\\.(css)$": "<rootDir>/node_modules/jest-css-modules",
-      "\\.(svg)$": "<rootDir>/src/__mocks__/fileMock.js"
-    }
+    "start": "vite",
+    "build": "vite build",
+    "test": "vitest run"
   }
 }

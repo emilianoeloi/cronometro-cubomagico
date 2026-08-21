@@ -1,4 +1,4 @@
-exports.msToISOString = function(ms) {
+export function msToISOString(ms) {
   const sec_num = parseInt(ms, 10) / 1000;
   let hours   = Math.floor(sec_num / 3600);
   let minutes = Math.floor((sec_num - (hours * 3600)) / 60);

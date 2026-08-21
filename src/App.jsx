@@ -1,10 +1,8 @@
 import React, { Component } from 'react';
-import firebase from 'firebase';
-import firebaseui from 'firebaseui';
 import ReactGA from 'react-ga';
 
 import logo from './logo.svg';
-import styles from './App.css';
+import './App.css';
 import { config } from './Config.js';
 import { msToISOString } from './Common';
 import Stopwatch from './Stopwatch';
@@ -12,6 +10,10 @@ import MyTimes from './MyTimes';
 import BestTimes from './BestTimes';
 import Footer from './Footer';
 import Shuffle from './Shuffle';
+
+// firebase v3 and firebaseui are loaded as global scripts (see index.html) because their
+// legacy UMD bundles assume top-level `this` is `window`, which breaks under Vite/esbuild's ESM bundling
+const { firebase, firebaseui } = window;
 
 class App extends Component {
   constructor(props) {
