@@ -1,0 +1,70 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`test table of BestTimes 1`] = `
+<table
+  className="pure-table"
+>
+  <caption
+    className="Table-caption"
+  >
+    <img
+      alt="trophy"
+      className="BestTimes-trophy"
+      src="data:image/svg+xml,%3c?xml%20version='1.0'%20?%3e%3csvg%20height='32px'%20version='1.1'%20viewBox='0%200%2032%2032'%20width='32px'%20xmlns='http://www.w3.org/2000/svg'%20xmlns:sketch='http://www.bohemiancoding.com/sketch/ns'%20xmlns:xlink='http://www.w3.org/1999/xlink'%3e%3ctitle/%3e%3cdesc/%3e%3cdefs/%3e%3cg%20fill='none'%20fill-rule='evenodd'%20id='Page-1'%20stroke='none'%20stroke-width='1'%3e%3cg%20fill='%23929292'%20id='icon-15-trophy'%3e%3cpath%20d='M21,25%20L21,22%20L17,22%20L17,17.9999979%20L17,17.9999977%20C20.3142002,17.9971381%2023,15.3165338%2023,12.0069348%20L23,12%20C26.5,10.5%2027,3%2027,3%20L23,3%20L22.5080872,3%20L10,3%20L6,3%20C6,3%206.5,10.5%2010,12%20L10,12.0069348%20C10,15.3150447%2012.6907305,17.9971322%2016,17.9999977%20L16,22%20L16,22%20L12,22%20L12,25%20L9,25%20L9,29%20L24,29%20L24,25%20L21,25%20L21,25%20Z%20M11,4%20L11,11.9924559%20C11,14.7580461%2013.2392729,17%2016.0010987,17%20L16.9989013,17%20C19.7609319,17%2022,14.7652203%2022,11.9924559%20L22,4%20L11,4%20L11,4%20Z%20M10,4%20L10,10.8999939%20C7.6541748,9.22064209%207.1000061,4%207.1000061,4%20L10,4%20L10,4%20Z%20M22.9824219,4%20L22.9824219,10.8803101%20C25.3282471,9.20095825%2025.8828125,4%2025.8828125,4%20L22.9824219,4%20L22.9824219,4%20Z%20M13,23%20L13,25%20L20,25%20L20,23%20L13,23%20L13,23%20Z%20M10,26%20L10,28%20L23,28%20L23,26%20L10,26%20L10,26%20Z'%20id='trophy'/%3e%3c/g%3e%3c/g%3e%3c/svg%3e"
+    />
+    <h2>
+      Melhores Tempos
+    </h2>
+  </caption>
+  <thead>
+    <tr>
+      <th>
+        #
+      </th>
+      <th>
+        Data
+      </th>
+      <th>
+        Cubista
+      </th>
+      <th>
+        Tempo
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr
+      className=""
+    >
+      <td>
+        1
+      </td>
+      <td>
+        1/31/2017
+      </td>
+      <td />
+      <td
+        className="time-formated"
+      >
+        00' 02.00"
+      </td>
+    </tr>
+    <tr
+      className="pure-table-odd"
+    >
+      <td>
+        2
+      </td>
+      <td>
+        1/25/2017
+      </td>
+      <td />
+      <td
+        className="time-formated"
+      >
+        00' 03.00"
+      </td>
+    </tr>
+  </tbody>
+</table>
+`;

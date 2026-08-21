@@ -13,3 +13,14 @@ build
 .DS_Store
 .env
 npm-debug.log
+
+# AI agent/assistant tooling (skills, prompts, local agent config)
+.agents/
+.claude/
+openspec/
+spdd/
+skills-lock.json
+.github/copilot-prompts/
+.github/prompts.md
+.github/prompts/
+.github/skills/

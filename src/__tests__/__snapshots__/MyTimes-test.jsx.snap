@@ -1,22 +1,26 @@
-exports[`test test table of Times 1`] = `
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`test table of Times 1`] = `
 <table
-  className="pure-table">
+  className="pure-table"
+>
   <caption
-    className="Table-caption">
+    className="Table-caption"
+  >
     <h2>
       Meus Tempos
     </h2>
     <h3>
       Melhor tempo: 
-      00\' 00.00\"
+      00' 00.00"
     </h3>
     <h3>
       Tempo médio: 
-      00\' 00.00\"
+      00' 00.00"
     </h3>
     <h3>
       Pior tempo: 
-      00\' 00.00\"
+      00' 00.00"
     </h3>
   </caption>
   <thead>
