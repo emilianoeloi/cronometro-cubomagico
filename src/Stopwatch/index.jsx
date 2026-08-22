@@ -10,7 +10,9 @@ class Stopwatch extends Component {
     this.stop = this.stop.bind(this);
     this.reset = this.reset.bind(this);
     this.save = this.save.bind(this);
-    this.resetTwoKeys = this.resetTwoKeys.bind(this);
+    this.handleKeyDown = this.handleKeyDown.bind(this);
+    this.handleKeyUp = this.handleKeyUp.bind(this);
+    this.resetKeyboardControl = this.resetKeyboardControl.bind(this);
     this.state = {secondsElapsed: 0};
     this.focused = true;
     this.step = 1000 / 16;
@@ -23,6 +25,7 @@ class Stopwatch extends Component {
   }
 
   reset() {
+    this.resetKeyboardControl();
     this.setState({ secondsElapsed: 0});
   }
 
@@ -52,53 +55,37 @@ class Stopwatch extends Component {
     document.querySelector('.App-logo').className = document.querySelector('.App-logo').className.replace(' App-logo-anim', '');
   }
 
-  checkPCKeys(evt) {
-    if (evt.ctrlKey) {
-      if (!this.twoKeys.first) {
-        this.twoKeys.first = true;
-      } else if (this.twoKeys.first) {
-        this.twoKeys.second = true;
+  handleKeyDown(evt) {
+    if (evt.code !== 'Space' || evt.repeat) return;
+
+    if (this.control.started) {
+      if (!this.keyboardControl.stopKeyPressed) {
+        this.stop();
+        this.keyboardControl.stopKeyPressed = true;
       }
-      if (this.twoKeys.first && this.twoKeys.second) {
-        if (this.twoKeys.stop) {
-          this.stop();
-          this.twoKeys.stop = false;
-        } else {
-          this.start();
-          this.twoKeys.stop = true;
-        }
-        this.twoKeys.first = false;
-        this.twoKeys.second = false;
-      }
+      return;
     }
-  }
-  checkMacKeys(evt) {
-    const key = evt.key;
-    if (key === 'Meta') {
-      if (!this.twoKeys.first) {
-        this.twoKeys.first = true;
-      } else if (this.twoKeys.first) {
-        this.twoKeys.second = true;
-      }
-      if (this.twoKeys.first && this.twoKeys.second) {
-        if (this.twoKeys.stop) {
-          this.stop();
-          this.twoKeys.stop = false;
-        } else {
-          this.start();
-          this.twoKeys.stop = true;
-        }
-        this.twoKeys.first = false;
-        this.twoKeys.second = false;
-      }
+
+    if (!this.keyboardControl.stopKeyPressed) {
+      this.keyboardControl.spacePrepared = true;
     }
   }
 
-  resetTwoKeys() {
-    this.twoKeys = {
-      first: false,
-      second: false,
-      stop: false,
+  handleKeyUp(evt) {
+    if (evt.code !== 'Space') return;
+
+    const spacePrepared = this.keyboardControl.spacePrepared;
+    this.resetKeyboardControl();
+
+    if (spacePrepared && !this.control.started) {
+      this.start();
+    }
+  }
+
+  resetKeyboardControl() {
+    this.keyboardControl = {
+      spacePrepared: false,
+      stopKeyPressed: false,
     };
   }
 
@@ -106,19 +93,16 @@ class Stopwatch extends Component {
     this.control = {
       started: false,
     }
-    this.resetTwoKeys();
-    document.onkeydown = (evt) =>  {
-      if (!evt) evt = event;
-      this.checkPCKeys(evt);
-      this.checkMacKeys(evt);
-    };
+    this.resetKeyboardControl();
+    document.onkeydown = this.handleKeyDown;
+    document.onkeyup = this.handleKeyUp;
 
     window.onfocus = () => {
       this.focused = true;
     };
     window.onblur = () => {
       this.focused = false;
-      this.resetTwoKeys();
+      this.resetKeyboardControl();
     };
   }
 
